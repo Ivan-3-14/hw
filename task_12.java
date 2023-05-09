@@ -1,2 +1,14 @@
-package PACKAGE_NAME;public class task_12 {
+public class task_12 {
+    public static void main (String[] args){
+
+
+          int n = 1;
+          while (n <= 512){
+              System.out.print(n + " ");
+              n = n * 2;
+
+          }
+    }
 }
+
+
