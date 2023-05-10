@@ -12,8 +12,6 @@ public class task_9 {
         int minutes = (x % 3600) / 60;
         int secundes = x % 60;
 
-//        Есть проблема с 11, 12, 13, 14 часами, минутами и секундами - не подходит окончание. Пока не придумал, как это решить
-
         if (hours == 0) {
             if (minutes == 0) {
                 switch (secundes % 100) {
