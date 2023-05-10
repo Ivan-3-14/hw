@@ -14,137 +14,36 @@ public class task_9 {
 
         if (hours == 0) {
             if (minutes == 0) {
-                switch (secundes % 100) {
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                        System.out.print(" " + secundes + " секунд ");
-                        break;
-                    default:
+                if (secundes % 100 > 10 & secundes % 100 < 15) {
+                    System.out.print(" " + secundes + " секунд ");
+                } else {
 
-                        switch (secundes % 10) {
-                            case 0:
-                            case 5:
-                            case 6:
-                            case 7:
-                            case 8:
-                            case 9:
-                                System.out.print(" " + secundes + " секунд ");
-                                break;
-                            case 2:
-                            case 3:
-                            case 4:
-                                System.out.print(" " + secundes + " секунды ");
-                                break;
-                            case 1:
-                                System.out.print(" " + secundes + " секунда ");
-                                break;
-                            default:
-                                System.out.println();
-                        }
-
-                }
-            } else {
-                switch (minutes % 100) {
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                        System.out.print(" " + minutes + " минут ");
-                        break;
-                    default:
-                        switch (minutes % 10) {
-                            case 0:
-                            case 5:
-                            case 6:
-                            case 7:
-                            case 8:
-                            case 9:
-                                System.out.print(minutes + " минут ");
-                                break;
-                            case 2:
-                            case 3:
-                            case 4:
-                                System.out.print(minutes + " минуты ");
-                                break;
-                            case 1:
-                                System.out.print(minutes + " минута ");
-                                break;
-                            default:
-                                System.out.println();
-                        }
-                }
-                switch (secundes % 100) {
-                    case 11:
-                    case 12:
-                    case 13:
-                    case 14:
-                        System.out.print(" " + secundes + " секунд ");
-                        break;
-                    default:
-                        switch (secundes % 10) {
-                            case 0:
-                            case 5:
-                            case 6:
-                            case 7:
-                            case 8:
-                            case 9:
-                                System.out.print(" " + secundes + " секунд ");
-                                break;
-                            case 2:
-                            case 3:
-                            case 4:
-                                System.out.print(" " + secundes + " секунды ");
-                                break;
-                            case 1:
-                                System.out.print(" " + secundes + " секунда ");
-                                break;
-                            default:
-                                System.out.println();
-                        }
-                }
-
-
-            }
-        } else {
-            switch (hours % 100) {
-                case 11:
-                case 12:
-                case 13:
-                case 14:
-                    System.out.print(" " + hours + " часов ");
-                    break;
-                default:
-                    switch (hours % 10) {
+                    switch (secundes % 10) {
                         case 0:
                         case 5:
                         case 6:
                         case 7:
                         case 8:
                         case 9:
-                            System.out.print(" " + hours + " часов ");
+                            System.out.print(" " + secundes + " секунд ");
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            System.out.print(" " + hours + " часa ");
+                            System.out.print(" " + secundes + " секунды ");
                             break;
                         case 1:
-                            System.out.print(" " + hours + " час ");
+                            System.out.print(" " + secundes + " секунда ");
                             break;
                         default:
-                            System.out.println("ошибка");
+                            System.out.println();
                     }
-            }
-            switch (minutes % 100) {
-                case 11:
-                case 12:
-                case 13:
-                case 14:
+
+                }
+            } else {
+                if (minutes % 100 > 10 & minutes % 100 < 15) {
                     System.out.print(" " + minutes + " минут ");
-                    break;
-                default:
+                } else {
                     switch (minutes % 10) {
                         case 0:
                         case 5:
@@ -165,15 +64,10 @@ public class task_9 {
                         default:
                             System.out.println();
                     }
-            }
-            switch (secundes % 100) {
-                case 11:
-                case 12:
-                case 13:
-                case 14:
+                }
+                if (secundes % 100 > 10 & secundes % 100 < 15) {
                     System.out.print(" " + secundes + " секунд ");
-                    break;
-                default:
+                } else {
                     switch (secundes % 10) {
                         case 0:
                         case 5:
@@ -194,11 +88,88 @@ public class task_9 {
                         default:
                             System.out.println();
 
+                }
 
+                    if (hours % 100 > 10 & hours % 100 < 15) {
+                        System.out.print(" " + minutes + " минут ");
+                    } else {
+                        switch (hours % 10) {
+                            case 0:
+                            case 5:
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                                System.out.print(" " + hours + " часов ");
+                                break;
+                            case 2:
+                            case 3:
+                            case 4:
+                                System.out.print(" " + hours + " часa ");
+                                break;
+                            case 1:
+                                System.out.print(" " + hours + " час ");
+                                break;
+                            default:
+                                System.out.println("ошибка");
+                        }
                     }
+                    if (minutes % 100 > 10 & minutes % 100 < 15) {
+                        System.out.print(" " + minutes + " минут ");
+                    } else {
+                        switch (minutes % 10) {
+                            case 0:
+                            case 5:
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                                System.out.print(minutes + " минут ");
+                                break;
+                            case 2:
+                            case 3:
+                            case 4:
+                                System.out.print(minutes + " минуты ");
+                                break;
+                            case 1:
+                                System.out.print(minutes + " минута ");
+                                break;
+                            default:
+                                System.out.println();
+                        }
+                    }
+                    if (secundes % 100 > 10 & secundes % 100 < 15) {
+                        System.out.print(" " + secundes + " секунд ");
+                    } else {
+                        switch (secundes % 10) {
+                            case 0:
+                            case 5:
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                                System.out.print(" " + secundes + " секунд ");
+                                break;
+                            case 2:
+                            case 3:
+                            case 4:
+                                System.out.print(" " + secundes + " секунды ");
+                                break;
+                            case 1:
+                                System.out.print(" " + secundes + " секунда ");
+                                break;
+                            default:
+                                System.out.println();
+
+
+                        }
+                    }
+                }
             }
         }
     }
 }
+
+
 
 
