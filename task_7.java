@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.Scanner;
 
 public class task_7 {
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
 
@@ -24,7 +24,7 @@ public class task_7 {
         System.out.println();
 
 
-        if ((a - x) * (a - x) + (b - y) * (b - y) <= r * r ) {
+        if ((a - x) * (a - x) + (b - y) * (b - y) <= r * r) {
             System.out.println("точка принадлежит кругу");
         } else {
             System.out.println("точка не принадлежит кругу");
