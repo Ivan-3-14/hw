@@ -88,7 +88,7 @@ public class task_9 {
                         default:
                             System.out.println();
 
-                }
+                    }
 
                     if (hours % 100 > 10 & hours % 100 < 15) {
                         System.out.print(" " + minutes + " минут ");
