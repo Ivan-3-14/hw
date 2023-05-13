@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class task_6 {
+public class Task_6 {
     public static void main(String[] args) {
         //       Допустим, имеем две точки с координатами C(x1;y1) и D(x2;y2)
         //       Уравнение прямой, проходящей через 2 точки будет иметь вид y = a*x + b
