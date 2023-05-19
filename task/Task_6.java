@@ -1,3 +1,5 @@
+package task;
+
 public class Task_6 {
     public static void main(String[] args) {
         //       Допустим, имеем две точки с координатами C(x1;y1) и D(x2;y2)

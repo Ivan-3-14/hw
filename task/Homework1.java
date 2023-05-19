@@ -1,3 +1,5 @@
+package task;
+
 public class Homework1 {
     public static void main(String[] args) {
         int sideA = 25;
