@@ -15,7 +15,7 @@ public class HwOneTask6 {
                 {1, 7, 0, 2}
         };
         int[][] matrixResult = new int[4][4];
-        System.out.println();
+
         System.out.print("Summ Matrixs Result: ");
         for (int i = 0; i < matrixResult.length; i++) {
             System.out.println();

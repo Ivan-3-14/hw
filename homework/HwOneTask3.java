@@ -6,6 +6,7 @@ public class HwOneTask3 {
         int[] array = {1, 6, 8, 4, 2, 9, 3, 5, 15, 7, 67, 19};
         System.out.println("sourse array: ");
         System.out.println( Arrays.toString(array));
+
         int[] arrayInv = new int[array.length];
         System.out.println(" ");
         System.out.println("inverted array: ");
