@@ -10,7 +10,6 @@ public class Car {
     public Options options;
 
 
-
     public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Options options) {
         this.color = color;
         this.model = model;
@@ -28,7 +27,8 @@ public class Car {
         this.volumeEng = volumeEng;
     }
 
-    public void setColor(Color color) {this.color = color;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public void setWheelSize(int wheelSize) {

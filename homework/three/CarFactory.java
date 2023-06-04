@@ -10,7 +10,7 @@ public class CarFactory implements CreateCar {
     }
 
     Car[] stock = {
-            new Car (Color.GREEN, Model.GEOMETRY, 2020, 15, 1.6),
+            new Car(Color.GREEN, Model.GEOMETRY, 2020, 15, 1.6),
             new Car(Color.BlUE, Model.ATLAS, 2020, 16, 1.6),
             new Car(Color.YELLOW, Model.TUGELLA, 2023, 17, 1.6),
             new Car(Color.BLACK, Model.EMGRAND, 2020, 14, 1.4),
@@ -48,23 +48,20 @@ public class CarFactory implements CreateCar {
     }
 
 
-    Car mod = findSuitCar(Color.GRAY, Model.OKVANGO, 2020, 16, 1.6,stock);
+    Car mod = findSuitCar(Color.GRAY, Model.OKVANGO, 2020, 16, 1.6, stock);
 
     private Car findSuitCar(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Car[] stock) {
         int i = 0;
-        Car m = null;
         for (var mod : stock) {
-            if (mod.getModel().equals(model) & mod.getYearOfIssue() == yearOfIssue  &
+            if (mod.getModel().equals(model) & mod.getYearOfIssue() == yearOfIssue &
                     mod.getVolumeEng() == volumeEng) {
                 if (mod.getColor().equals(color) & mod.getWheelSize() == wheelSize) {
                     i = 1;
                     System.out.println("This car is in stock: ");
                     System.out.println(mod);
                     break;
-                }
-                else {
+                } else {
                     i = 2;
-                   m = mod;
                 }
             } else {
                 i = 3;
@@ -73,10 +70,12 @@ public class CarFactory implements CreateCar {
         if (i == 2) {
 
             System.out.println("Car from the stock needs to be serviced ");
-            System.out.println(m);
-        }
-        else if (i == 3 ){
+            System.out.println(mod);
+            Service service = new Service(mod);
+
+        } else if (i == 3) {
             System.out.println("CarFactory will create this car in the near feature ");
+
         }
         return mod;
     }

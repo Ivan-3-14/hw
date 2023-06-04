@@ -3,14 +3,13 @@ package homework.three;
 public class Service {
 
     private final Color[] color = Color.values();
-    private final WheelSize[] wheelSize = WheelSize.values();
+    private final WheelSize[] wheelSizes = WheelSize.values();
     private final Options[] options = Options.values();
 
-    public Service() {
+    public Service(Car car) {
     }
 
-
-    private Service (Color color, int wheelSize, Options options) {
+    private Car changeCar(Color color, int wheelSize, Options options) {
 
         for (Color col : color.getColors()) {
             if (col.name().equals(color.name().toUpperCase())) {
@@ -18,7 +17,8 @@ public class Service {
             }
         }
 
-//        for ( var w : wheelSize) {
+//        int w = wheelSize;
+//        for ( w : ) {
 //            if (w == wheelSize) {
 //                wheelSize = w;
 //            }
@@ -28,5 +28,6 @@ public class Service {
                 options = opt;
             }
         }
+        return changeCar(color, wheelSize, options);
     }
 }

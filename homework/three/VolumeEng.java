@@ -1,10 +1,10 @@
 package homework.three;
 
 public enum VolumeEng {
-    ENG_1_4 (1.4d),
-    ENG_1_6 (1.6d),
-    ENG_1_8 (1.8d),
-    ENG_2_0 (2.0d);
+    ENG_1_4(1.4d),
+    ENG_1_6(1.6d),
+    ENG_1_8(1.8d),
+    ENG_2_0(2.0d);
 
     private double volumeEng;
 
