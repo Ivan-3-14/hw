@@ -10,10 +10,10 @@ public class ShowRoomCars {
         this.service = service;
     }
 
-    public Car car(Color color, Model model, YearOfIssue yearOfIssue, int wheelSize, double volumeEng, Options options) {
+    public Car car(Color color, Model model, YearOfIssue yearOfIssue, int wheelSize, double volumeEng, Option options) {
         return null;
     }
 
-    Car newCar = new Car(Color.YELLOW, Model.TUGELLA, 2023, 17, 1.6);
+//    Car newCar = new Car(Color.YELLOW, Model.TUGELLA, 2023, 17, 1.6);
 
 }

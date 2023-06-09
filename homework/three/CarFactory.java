@@ -1,5 +1,9 @@
 package homework.three;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class CarFactory implements CreateCar {
     private final Color[] color = Color.values();
     private final Model[] model = Model.values();
@@ -7,22 +11,6 @@ public class CarFactory implements CreateCar {
     private final VolumeEng[] volumeEng = VolumeEng.values();
 
     public CarFactory() {
-    }
-
-    Car[] stock = {
-            new Car(Color.GREEN, Model.GEOMETRY, 2020, 15, 1.6),
-            new Car(Color.BlUE, Model.ATLAS, 2020, 16, 1.6),
-            new Car(Color.YELLOW, Model.TUGELLA, 2023, 17, 1.6),
-            new Car(Color.BLACK, Model.EMGRAND, 2020, 14, 1.4),
-            new Car(Color.GRAY, Model.COOLRAY, 2023, 17, 2.0),
-            new Car(Color.VIOLET, Model.GEOMETRY, 2020, 15, 1.6),
-            new Car(Color.GREEN, Model.OKVANGO, 2020, 16, 1.6)
-    };
-
-    public void printStock() {
-        for (var s : stock) {
-            System.out.print(s + "\n");
-        }
     }
 
     public void printListForProduction() {
@@ -47,49 +35,67 @@ public class CarFactory implements CreateCar {
         }
     }
 
+    Stock stock = new Stock();
+    List<Car> cars =  stock.cars;
+    Car myCar1 = new Car(null, null,0,0,0.0);
+    Car mod = findSuitCar(Color.GRAY, Model.GEOMETRY, 2020, 18, 1.6, cars);
 
-    Car mod = findSuitCar(Color.GRAY, Model.OKVANGO, 2020, 16, 1.6, stock);
-
-    private Car findSuitCar(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Car[] stock) {
+    private Car findSuitCar(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, List list ) {
         int i = 0;
-        for (var mod : stock) {
+        for (var mod : cars) {
             if (mod.getModel().equals(model) & mod.getYearOfIssue() == yearOfIssue &
                     mod.getVolumeEng() == volumeEng) {
                 if (mod.getColor().equals(color) & mod.getWheelSize() == wheelSize) {
-                    i = 1;
                     System.out.println("This car is in stock: ");
-                    System.out.println(mod);
+                    System.out.println(mod.toString());
+                    i = 1;
+                    myCar1 = mod;
                     break;
                 } else {
-                    i = 2;
+                    if (mod.getColor().equals(color)) {
+                        i = 2;
+                        myCar1 = mod;
+                    }
+                    if (mod.getWheelSize() == wheelSize) {
+                        i = 3;
+                        myCar1 = mod;
+                    }
+                    if (!mod.getColor().equals(color) & mod.getWheelSize() != wheelSize) {
+                        i = 4;
+                        myCar1 = mod;
+                    }
                 }
-            } else {
-                i = 3;
             }
         }
-        if (i == 2) {
+        switch (i) {
+            case 2:
+            System.out.println("Car from the stock needs a wheels change at the serviced ");
+                System.out.println(myCar1);
+            Service service = new Service(myCar1);
+            break;
 
-            System.out.println("Car from the stock needs to be serviced ");
-            System.out.println(mod);
-            Service service = new Service(mod);
+            case 3:
+            System.out.println("Car from the stock needs a color change at the serviced ");
+            Service service1 = new Service(myCar1);
+            System.out.println(myCar1);
+            break;
 
-        } else if (i == 3) {
+            case 4:
+            System.out.println("Car from the stock needs a color and wheels change at the serviced ");
+            System.out.println(myCar1);
+            break;
+
+            case 0:
             System.out.println("CarFactory will create this car in the near feature ");
-
+            break;
+            default:
         }
         return mod;
     }
 
 
     @Override
-    public Car create(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Options options) {
+    public Car create(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Option[] options) {
         return null;
     }
-
-    @Override
-    public Car create(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng) {
-        return null;
-    }
-
-
 }

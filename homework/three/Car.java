@@ -1,22 +1,25 @@
 package homework.three;
 
+import java.util.Arrays;
+import java.util.Set;
+
 public class Car {
 
-    protected Color color;
-    private Model model;
-    private int yearOfIssue;
-    protected int wheelSize;
-    private double volumeEng;
-    public Options options;
+    private  Color color;
+    private final Model model;
+    private final int yearOfIssue;
+    private  int wheelSize;
+    private final double volumeEng;
+    private Option option;
 
 
-    public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Options options) {
+    public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Option options) {
         this.color = color;
         this.model = model;
         this.yearOfIssue = yearOfIssue;
         this.wheelSize = wheelSize;
         this.volumeEng = volumeEng;
-        this.options = options;
+        this.option = options;
     }
 
     public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng) {
@@ -35,10 +38,6 @@ public class Car {
         this.wheelSize = wheelSize;
     }
 
-    public void setOptions(Options options) {
-        this.options = options;
-    }
-
     public Color getColor() {
         return color;
     }
@@ -47,21 +46,21 @@ public class Car {
         return volumeEng;
     }
 
-    public Options getOptions() {
-        return options;
+    public Option getOptions() {
+        return option;
     }
 
 
     @Override
     public String toString() {
-        return "myCar { " +
+        return "myCar ( " +
                 "color = " + color +
                 ", model = " + model +
                 ", yearOfIssue = " + yearOfIssue +
                 ", wheelSize = " + wheelSize +
                 ", volumeEng = " + volumeEng +
-                ", options = " + options +
-                '}';
+                "," + option +
+                ')';
     }
 
     public Model getModel() {
