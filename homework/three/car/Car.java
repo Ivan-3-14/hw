@@ -1,4 +1,4 @@
-package homework.three.functional;
+package homework.three.car;
 import homework.three.lists.Color;
 import homework.three.lists.Model;
 

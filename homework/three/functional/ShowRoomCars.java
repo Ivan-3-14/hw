@@ -1,5 +1,6 @@
 package homework.three.functional;
 
+import homework.three.car.Car;
 import homework.three.lists.Color;
 import homework.three.lists.Model;
 
