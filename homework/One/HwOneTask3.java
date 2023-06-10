@@ -1,4 +1,4 @@
-package homework;
+package homework.One;
 
 import java.util.Arrays;
 public class HwOneTask3 {
