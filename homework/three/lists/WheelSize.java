@@ -1,4 +1,4 @@
-package homework.three;
+package homework.three.lists;
 
 public enum WheelSize {
     WHEEL_14(14),
@@ -12,6 +12,10 @@ public enum WheelSize {
 
     WheelSize(int wheelSize) {
         this.wheelSize = wheelSize;
+    }
+
+    public static int[] valueOf() {
+        return new int[0];
     }
 
     public int getWheelSize() {

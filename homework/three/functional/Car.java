@@ -1,29 +1,31 @@
-package homework.three;
+package homework.three.functional;
+import homework.three.lists.Color;
+import homework.three.lists.Model;
 
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Car {
 
-    private  Color color;
+    private Color colors;
     private final Model model;
     private final int yearOfIssue;
     private  int wheelSize;
     private final double volumeEng;
-    private Option option;
+    Set<String> option = new HashSet<>();
 
 
-    public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Option options) {
-        this.color = color;
+    public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng, Set<String> option) {
+        this.colors = color;
         this.model = model;
         this.yearOfIssue = yearOfIssue;
         this.wheelSize = wheelSize;
         this.volumeEng = volumeEng;
-        this.option = options;
+        this.option = option;
     }
 
     public Car(Color color, Model model, int yearOfIssue, int wheelSize, double volumeEng) {
-        this.color = color;
+        this.colors = color;
         this.model = model;
         this.yearOfIssue = yearOfIssue;
         this.wheelSize = wheelSize;
@@ -31,7 +33,7 @@ public class Car {
     }
 
     public void setColor(Color color) {
-        this.color = color;
+        this.colors = color;
     }
 
     public void setWheelSize(int wheelSize) {
@@ -39,29 +41,16 @@ public class Car {
     }
 
     public Color getColor() {
-        return color;
+        return colors;
     }
 
     public double getVolumeEng() {
         return volumeEng;
     }
 
-    public Option getOptions() {
-        return option;
-    }
+    public Set<String> getOption() { return option;}
 
-
-    @Override
-    public String toString() {
-        return "myCar ( " +
-                "color = " + color +
-                ", model = " + model +
-                ", yearOfIssue = " + yearOfIssue +
-                ", wheelSize = " + wheelSize +
-                ", volumeEng = " + volumeEng +
-                "," + option +
-                ')';
-    }
+    public void setOption(Set<String> option) { this.option = option; }
 
     public Model getModel() {
         return model;
@@ -73,5 +62,17 @@ public class Car {
 
     public int getWheelSize() {
         return wheelSize;
+    }
+
+    @Override
+    public String toString() {
+        return "Car (" +
+                "color: " + colors +
+                ", model: " + model +
+                ", yearOfIssue: " + yearOfIssue +
+                ", wheelSize: " + wheelSize +
+                ", volumeEng: " + volumeEng +
+                ", options: " + option +
+                ')';
     }
 }

@@ -1,7 +1,9 @@
-package homework.three;
+package homework.three.functional;
+
+import homework.three.lists.Color;
+import homework.three.lists.Model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Stock {

@@ -1,4 +1,4 @@
-package homework.three;
+package homework.three.lists;
 
 public class YearOfIssue {
 
