@@ -11,6 +11,4 @@ public class YearOfIssue {
     public int yearOfIssue() {
         return yearOfIssue;
     }
-
-
 }

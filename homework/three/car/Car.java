@@ -1,4 +1,5 @@
 package homework.three.car;
+
 import homework.three.lists.Color;
 import homework.three.lists.Model;
 
@@ -10,7 +11,7 @@ public class Car {
     private Color colors;
     private final Model model;
     private final int yearOfIssue;
-    private  int wheelSize;
+    private int wheelSize;
     private final double volumeEng;
     Set<String> option = new HashSet<>();
 
@@ -48,9 +49,13 @@ public class Car {
         return volumeEng;
     }
 
-    public Set<String> getOption() { return option;}
+    public Set<String> getOption() {
+        return option;
+    }
 
-    public void setOption(Set<String> option) { this.option = option; }
+    public void setOption(Set<String> option) {
+        this.option = option;
+    }
 
     public Model getModel() {
         return model;

@@ -28,7 +28,7 @@ public class ShowRoomCars {
         );
 
         factory.create(myCar.getColor(), myCar.getModel(), myCar.getYearOfIssue(), myCar.getWheelSize(),
-                myCar.getVolumeEng(),myCar.getOption()
+                myCar.getVolumeEng(), myCar.getOption()
         );
     }
 }

@@ -24,5 +24,4 @@ public enum WheelSize {
 
     public void setWheelSize(WheelSize[] wheelSize) {
     }
-
 }

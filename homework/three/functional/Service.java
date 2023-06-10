@@ -27,15 +27,15 @@ public class Service {
         }
     }
 
-    public void setWheelSize(int newWheelSize){
+    public void setWheelSize(int newWheelSize) {
         for (int w : WheelSize.valueOf()) {
-            if (w == newWheelSize){
+            if (w == newWheelSize) {
                 wheelSizes = w;
             }
         }
     }
 
-    public void setOption (Set<String> option){
+    public void setOption(Set<String> option) {
         option.add(String.valueOf(Option.valueOf(option.toString())));
     }
 

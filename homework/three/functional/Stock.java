@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Stock {
 
-        List<Car> cars = new ArrayList<>();
+    List<Car> cars = new ArrayList<>();
 
-    public Stock(){
+    public Stock() {
         cars.add(new Car(Color.GREEN, Model.GEOMETRY, 2020, 15, 1.6));
         cars.add(new Car(Color.BlUE, Model.ATLAS, 2020, 18, 2.0));
         cars.add(new Car(Color.YELLOW, Model.TUGELLA, 2023, 17, 1.6));
@@ -23,7 +23,7 @@ public class Stock {
         cars.add(new Car(Color.ORANGE, Model.ATLAS, 2020, 18, 2.0));
     }
 
-        public void printStock() {
+    public void printStock() {
         for (var s : cars) {
             System.out.print(s + "\n");
         }

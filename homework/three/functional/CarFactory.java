@@ -85,7 +85,7 @@ public class CarFactory implements CreateCar {
                 wheelChange.setWheelSize(myWheelSize);
                 myCar1.setWheelSize(myWheelSize);
                 myCar1.setOption(option);
-                System.out.println( myCar1);
+                System.out.println(myCar1);
                 break;
 
             case 3:
@@ -128,7 +128,7 @@ public class CarFactory implements CreateCar {
             wheelSize = wheelSize;
             volumeEng = volumeEng;
             options = options;
-            result = new Car(color,model,yearOfIssue,wheelSize,volumeEng,options);
+            result = new Car(color, model, yearOfIssue, wheelSize, volumeEng, options);
             System.out.println("created car: " + result);
         }
         return result;
