@@ -1,9 +1,9 @@
 package homework.three.functional;
 
 import homework.three.car.Car;
-import homework.three.lists.Color;
-import homework.three.lists.Option;
-import homework.three.lists.WheelSize;
+import homework.course_project.cars.model.enums.Color;
+import homework.course_project.cars.model.enums.Option;
+import homework.course_project.cars.model.enums.WheelSize;
 
 import java.util.Set;
 

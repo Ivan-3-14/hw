@@ -1,7 +1,7 @@
 package homework.three.car;
 
-import homework.three.lists.Color;
-import homework.three.lists.Model;
+import homework.course_project.cars.model.enums.Color;
+import homework.course_project.cars.model.enums.Model;
 
 import java.util.HashSet;
 import java.util.Set;
