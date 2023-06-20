@@ -14,25 +14,23 @@ public class Task3 {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Your number : ");
+            System.out.println("Your number or \"stop-word\" or command \"status\" : ");
             if (scan.hasNextDouble()) {
                 array.add(scan.nextDouble());
-            } else {
-                if (scan.next().equalsIgnoreCase(stopWord)) {
-                    break;
-                } else {
-                    System.out.println("This is not a number!");
-                }
-            }
-        }
-        while (true) {
-            if (scan.next().equalsIgnoreCase(status)) {
+            } else if (scan.next().equalsIgnoreCase(status)) {
                 Collections.sort(array);
                 for (double counter : array) {
                     System.out.print(counter + " ");
                 }
+                System.out.println();
+            }
+            else  if (scan.next().equalsIgnoreCase(stopWord)) {
                 break;
+            }
+            else {
+                System.out.println("This is not a number!");
             }
         }
     }
 }
+

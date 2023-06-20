@@ -2,14 +2,14 @@ package homework.four.task8;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Task8 {
     public static void main(String[] args) {
-        List<String> list1 = new ArrayList<>();
-        List<String> list2 = new ArrayList<>();
-        List<String> result = new ArrayList<>();
+        Set<String> list1 = new HashSet<>();
+        Set<String> list2 = new HashSet<>();
+        Set<String> result = new HashSet<>();
         String line;
 
         try (BufferedReader reader1 = new BufferedReader(
