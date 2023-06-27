@@ -19,5 +19,6 @@ public class HomeworkTwoTask6 {
             }
         }
         result = longesWord;
+        System.out.println(result);
     }
 }

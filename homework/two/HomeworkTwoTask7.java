@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class HomeworkTwoTask7 {
     public static void main(String[] args) {
 
-        var stringWithBeginAndEndA = " Triumphalnaya arkan odno iz proizveneniy Remarka ";
+        var stringWithBeginAndEndA = " Triumphalnaya arka odno iz proizveneniy Remarka ";
 
         var pattern = Pattern.compile("\\ba+\\w*a+\\b");
         var matcher = pattern.matcher(stringWithBeginAndEndA);
