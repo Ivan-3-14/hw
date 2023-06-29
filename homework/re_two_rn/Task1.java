@@ -19,8 +19,9 @@ public class Task1 {
         }
 
         if (longesNumber.equals("")) {
-            System.out.println("This text haven't numbers");
+            System.out.println("This text haven't numbers : ");
         } else {
+            System.out.println("Max number of consecutive digits");
             System.out.println(longesNumber);
         }
     }
