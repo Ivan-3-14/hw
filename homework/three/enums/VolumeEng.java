@@ -1,4 +1,4 @@
-package homework.three.lists;
+package homework.course_project.cars.car.model.enums;
 
 public enum VolumeEng {
     ENG_1_4(1.4d),
@@ -10,9 +10,5 @@ public enum VolumeEng {
 
     VolumeEng(double volumeEnge) {
         this.volumeEng = volumeEng;
-    }
-
-    public double getVolumeEng() {
-        return volumeEng;
     }
 }
