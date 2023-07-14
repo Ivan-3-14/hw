@@ -18,6 +18,9 @@ public class RobotWar {
     private static final Set<String> OCEANIA_STOCK = new HashSet<>();
     private static int end = 0;
     private static final int mills = 1;
+    private static int countOceania = 0;
+    private static int countEastasia = 0;
+    private static int countEurasia = 0;
     private static String result = "result";
 
     protected static void factory() throws InterruptedException {
@@ -37,77 +40,19 @@ public class RobotWar {
     }
 
     protected static void oceania() throws InterruptedException {
-        int countOceania = 0;
-        synchronized (STORAGE) {
-            while (true) {
-                while (STORAGE.size() == 0 || result == null) {
-                    result = "result";
-                    STORAGE.wait(mills);
-                }
-                sleep(mills);
-                result = findPart(STORAGE, OCEANIA_STOCK);
-                if (result != null) {
-                    OCEANIA_STOCK.add(result);
-                    STORAGE.remove(result);
-                    System.out.println("Oceania get: " + result);
-                }
-                if (STORAGE.isEmpty() || result == null) {
-                    STORAGE.notifyAll();
-                }
-                if (OCEANIA_STOCK.size() == 6) {
-                    countOceania++;
-                    OCEANIA_STOCK.clear();
-                    System.out.println((char) 27 + "[32mOceania make " + countOceania + " " + (char) 27 + "[32mrobot" + (char) 27 + "[0m");
-                }
-                if (countOceania == COUNT_OF_ROBOTS) {
-                    System.out.println();
-                    System.out.println((char) 27 + "[31mOceania win in robot's war! " + (char) 27 + "[0m");
-                    end = 1;
-                }
-                if (end == 1) {
-                    return;
-                }
-            }
-        }
+        createCountry("Oceania", OCEANIA_STOCK, countOceania, "[32m");
     }
 
     protected static void eastasia() throws InterruptedException {
-        int countEastasia = 0;
-        synchronized (STORAGE) {
-            while (true) {
-                while (STORAGE.size() == 0 || result == null) {
-                    result = "result";
-                    STORAGE.wait(mills);
-                }
-                sleep(mills);
-                result = findPart(STORAGE, EASTASIA_STOCK);
-                if (result != null) {
-                    EASTASIA_STOCK.add(result);
-                    STORAGE.remove(result);
-                    System.out.println("Eastasia get: " + result);
-                }
-                if (STORAGE.isEmpty() || result == null) {
-                    STORAGE.notifyAll();
-                }
-                if (EASTASIA_STOCK.size() == 6) {
-                    countEastasia++;
-                    EASTASIA_STOCK.clear();
-                    System.out.println((char) 27 + "[36mEastasia make " + countEastasia + " " + (char) 27 + "[36mrobot" + (char) 27 + "[0m");
-                }
-                if (countEastasia == COUNT_OF_ROBOTS) {
-                    System.out.println();
-                    System.out.println((char) 27 + "[31mEastasia win in robot's war! " + (char) 27 + "[0m");
-                    end = 1;
-                }
-                if (end == 1) {
-                    return;
-                }
-            }
-        }
+        createCountry("Eastasia", EASTASIA_STOCK, countEastasia, "[36m");
     }
 
     protected static void eurasia() throws InterruptedException {
-        int countEurasia = 0;
+        createCountry("Eurasia", EURASIA_STOCK, countEurasia, "[35m");
+    }
+
+
+    protected static void createCountry(String name, Set<String> NAME_STOCK, int count, String message) throws InterruptedException {
         synchronized (STORAGE) {
             while (true) {
                 while (STORAGE.size() == 0 || result == null) {
@@ -115,23 +60,23 @@ public class RobotWar {
                     STORAGE.wait(mills);
                 }
                 sleep(mills);
-                result = findPart(STORAGE, EURASIA_STOCK);
+                result = findPart(STORAGE, NAME_STOCK);
                 if (result != null) {
-                    EURASIA_STOCK.add(result);
+                    NAME_STOCK.add(result);
                     STORAGE.remove(result);
-                    System.out.println("Eurasia get: " + result);
+                    System.out.println(name + " get: " + result);
                 }
                 if (STORAGE.isEmpty() || result == null) {
                     STORAGE.notifyAll();
                 }
-                if (EURASIA_STOCK.size() == 6) {
-                    countEurasia++;
-                    EURASIA_STOCK.clear();
-                    System.out.println((char) 27 + "[35mEurasia make " + countEurasia + " " + (char) 27 + "[35mrobot" + (char) 27 + "[0m");
+                if (NAME_STOCK.size() == 6) {
+                    count++;
+                    NAME_STOCK.clear();
+                    System.out.println((char) 27 + message + name + " make " + count + " robot" + (char) 27 + "[0m");
                 }
-                if (countEurasia == COUNT_OF_ROBOTS) {
+                if (count == COUNT_OF_ROBOTS) {
                     System.out.println();
-                    System.out.println((char) 27 + "[31mEurasia win in robot's war! " + (char) 27 + "[0m");
+                    System.out.println((char) 27 + "[31m" + name + " win in robot's war! " + (char) 27 + "[0m");
                     end = 1;
                 }
                 if (end == 1) {
