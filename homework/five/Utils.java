@@ -6,14 +6,6 @@ import java.util.Set;
 
 public class Utils {
     private static final Random RANDOM = new Random();
-    private static final String[] ROBOT_PART = {
-            "Right leg",
-            "Left leg",
-            "Right hand",
-            "Left hand",
-            "Body",
-            "Head"
-    };
 
     interface InterruptedWrapped {
         void wrap() throws InterruptedException;
@@ -44,6 +36,6 @@ public class Utils {
     }
 
     public static String generateRobotPart() {
-        return ROBOT_PART [RANDOM.nextInt(ROBOT_PART.length)];
+        return RobotPart.values()[RANDOM.nextInt((RobotPart.values().length))].toString();
     }
 }
