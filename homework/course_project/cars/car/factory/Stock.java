@@ -24,7 +24,7 @@ public class Stock {
     }
 
     public Car findSuitCar(Brand brand, Color color, Model model, int yearOfIssue, WheelSize wheelSize,
-                           VolumeEng volumeEng, Wrapper wrapper) {
+                           VolumeEng volumeEng, Wrapper wrapper) throws NullPointerException {
         synchronized (cars) {
             Car suitCar = null;
             int count = 0;

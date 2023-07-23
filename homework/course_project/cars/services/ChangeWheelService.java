@@ -14,7 +14,7 @@ import static homework.course_project.cars.utils.Utility.checkBrandHaveThisParam
 public class ChangeWheelService extends Service {
 
     @Override
-    public void changeWheels(Car car, WheelSize wheelSize) {
+    public void changeWheels(Car car, WheelSize wheelSize) throws IllegalArgumentException {
 
         if (checkBrandHaveThisParameter(car, wheelSize, List.of(AudiWheelSize.values()), "AUDI")) {
             super.changeWheels(car, wheelSize);

@@ -17,7 +17,7 @@ import static homework.course_project.cars.utils.Utility.checkBrandHaveThisParam
 public class ChangeOptionService extends Service {
 
     @Override
-    public void addOption(Car car, Option option) {
+    public void addOption(Car car, Option option)  throws IllegalArgumentException {
         if (checkBrandHaveThisParameter(car, option, List.of(AudiOption.values()), "AUDI")) {
             super.addOption(car, option);
         } else if (checkBrandHaveThisParameter(car, option, List.of(BMWOption.values()), "BMW")) {
@@ -38,7 +38,7 @@ public class ChangeOptionService extends Service {
     }
 
     @Override
-    public void changeOptions(Car car, Set<Option> options) {
+    public void changeOptions(Car car, Set<Option> options)  throws IllegalArgumentException {
         if (new HashSet<>(List.of(AudiOption.values())).containsAll(options)) {
             super.changeOptions(car, options);
         } else if (new HashSet<>(List.of(BMWOption.values())).containsAll(options)) {

@@ -25,46 +25,51 @@ import java.util.Set;
 import static homework.course_project.cars.car.model.Car.printCar;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NullPointerException {
 
-        ChangeColorService changeColorService = new ChangeColorService();
-        ChangeWheelService changeWheelService = new ChangeWheelService();
-        ChangeOptionService changeOptionService = new ChangeOptionService();
-        AudiFactory audiFactory = new AudiFactory(
-                AudiColor.values(), AudiModel.values(), AudiWheelSize.values(), AudiVolumeEng.values(), AudiBodyType.values()
-        );
-        BMWFactory bmwFactory = new BMWFactory(BMWColor.values(), BMWModel.values(), BMWWheelSize.values(), BMWVolumeEng.values());
-        FordFactory fordFactory = new FordFactory(FordColor.values(), FordModel.values(), FordWheelSize.values(), FordVolumeEng.values());
+        try {
 
-        ShowroomABF showroomABF = new ShowroomABF(
-                changeColorService, changeWheelService, changeOptionService, audiFactory, bmwFactory, fordFactory
-        );
+            ChangeColorService changeColorService = new ChangeColorService();
+            ChangeWheelService changeWheelService = new ChangeWheelService();
+            ChangeOptionService changeOptionService = new ChangeOptionService();
+            AudiFactory audiFactory = new AudiFactory(
+                    AudiColor.values(), AudiModel.values(), AudiWheelSize.values(), AudiVolumeEng.values(), AudiBodyType.values()
+            );
+            BMWFactory bmwFactory = new BMWFactory(BMWColor.values(), BMWModel.values(), BMWWheelSize.values(), BMWVolumeEng.values());
+            FordFactory fordFactory = new FordFactory(FordColor.values(), FordModel.values(), FordWheelSize.values(), FordVolumeEng.values());
 
-        showroomABF.printCarFactoryLists(audiFactory);
+            ShowroomABF showroomABF = new ShowroomABF(
+                    changeColorService, changeWheelService, changeOptionService, audiFactory, bmwFactory, fordFactory
+            );
 
-        Audi audi = (Audi) showroomABF.orderCar(
-                AudiBrand.AUDI,
-                AudiColor.BLACK,
-                AudiModel.A5,
-                2023,
-                AudiWheelSize.R17,
-                AudiVolumeEng.V_2_2,
-                new WrapperAudi(AudiBodyType.COUPE, true));
+//        showroomABF.printCarFactoryLists(audiFactory);
+//        audiFactory.printStock();
 
-        Set<AudiOption> audiOptions = new HashSet<>();
-        audiOptions.add(AudiOption.ARMREST);
-        audiOptions.add(AudiOption.CONDITIONER);
-        showroomABF.changeOptions(audi, audiOptions);
-        printCar(audi);
+            Audi audi = (Audi) showroomABF.orderCar(
+                    AudiBrand.AUDI,
+                    BMWColor.BLUE,
+                    AudiModel.A5,
+                    2023,
+                    AudiWheelSize.R17,
+                    AudiVolumeEng.V_2_2,
+                    new WrapperAudi(AudiBodyType.COUPE, true));
 
-        Set<AudiOption> audiOptions1 = new HashSet<>();
-        audiOptions1.add(AudiOption.POWERWINDOW);
-        showroomABF.changeOptions(audi, audiOptions1);
-        printCar(audi);
 
-        showroomABF.deleteOption(audi, AudiOption.POWERWINDOW);
-        printCar(audi);
+            Set<AudiOption> audiOptions = new HashSet<>();
+            audiOptions.add(AudiOption.ARMREST);
+            audiOptions.add(AudiOption.CONDITIONER);
+            showroomABF.changeOptions(audi, audiOptions);
+            printCar(audi);
 
-        audiFactory.printStock();
+            Set<AudiOption> audiOptions1 = new HashSet<>();
+            audiOptions1.add(AudiOption.POWERWINDOW);
+            showroomABF.changeOptions(audi, audiOptions1);
+            printCar(audi);
+
+            showroomABF.deleteOption(audi, AudiOption.POWERWINDOW);
+            printCar(audi);
+
+            audiFactory.printStock();
+        } catch (NullPointerException e){}
     }
 }

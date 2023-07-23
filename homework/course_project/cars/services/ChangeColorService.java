@@ -14,7 +14,7 @@ import static homework.course_project.cars.utils.Utility.checkBrandHaveThisParam
 public class ChangeColorService extends Service {
 
     @Override
-    public void changeColor(Car car, Color color) {
+    public void changeColor(Car car, Color color) throws IllegalArgumentException {
         if (checkBrandHaveThisParameter(car, color, List.of(AudiColor.values()), "AUDI")) {
             super.changeColor(car, color);
 
