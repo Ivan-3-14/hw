@@ -1,6 +1,6 @@
 package homework.course_project.cars.audi.enums;
 
-import homework.course_project.cars.car.model.enums.WheelSize;
+import homework.course_project.cars.car.model.interfaces.WheelSize;
 
 public enum AudiWheelSize implements WheelSize {
     R16(16),
@@ -17,4 +17,7 @@ public enum AudiWheelSize implements WheelSize {
         return new int[0];
     }
 
+    public int getAudiWheelSize() {
+        return audiWheelSize;
+    }
 }

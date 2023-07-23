@@ -1,6 +1,6 @@
 package homework.course_project.cars.ford.enums;
 
-import homework.course_project.cars.car.model.enums.WheelSize;
+import homework.course_project.cars.car.model.interfaces.WheelSize;
 
 public enum FordWheelSize implements WheelSize {
     R13(13),

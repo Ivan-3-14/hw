@@ -1,6 +1,6 @@
 package homework.course_project.cars.audi.enums;
 
-import homework.course_project.cars.car.model.enums.VolumeEng;
+import homework.course_project.cars.car.model.interfaces.VolumeEng;
 
 public enum AudiVolumeEng implements VolumeEng {
     V_2_0(2.0d),

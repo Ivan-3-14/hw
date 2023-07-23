@@ -1,6 +1,6 @@
 package homework.course_project.cars.ford.enums;
 
-import homework.course_project.cars.car.model.enums.VolumeEng;
+import homework.course_project.cars.car.model.interfaces.VolumeEng;
 
 public enum FordVolumeEng implements VolumeEng {
     V_1_4(1.4d),

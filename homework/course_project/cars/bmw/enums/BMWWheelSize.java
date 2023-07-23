@@ -1,6 +1,6 @@
 package homework.course_project.cars.bmw.enums;
 
-import homework.course_project.cars.car.model.enums.WheelSize;
+import homework.course_project.cars.car.model.interfaces.WheelSize;
 
 public enum BMWWheelSize implements WheelSize {
     R19(19),

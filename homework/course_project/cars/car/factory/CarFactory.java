@@ -1,8 +1,9 @@
 package homework.course_project.cars.car.factory;
-import homework.course_project.cars.car.model.enums.*;
+
+import homework.course_project.cars.car.model.interfaces.*;
 import homework.course_project.cars.car.model.Car;
 
-import java.util.Set;
+import static homework.course_project.cars.car.model.Car.printCar;
 
 public abstract class CarFactory {
     private static final int yearOfIssue = 2023;
@@ -22,6 +23,7 @@ public abstract class CarFactory {
     }
 
     public void printListForProduction() {
+        System.out.println("Available characteristics: ");
         System.out.println("available models: ");
         for (Model m : model) {
             System.out.print(m + ",  ");
@@ -41,31 +43,44 @@ public abstract class CarFactory {
         for (VolumeEng v : getVolumeEng()) {
             System.out.print(v + ",  ");
         }
-    };
+        System.out.println();
+    }
+
+    public abstract void addCarToStock();
 
     public void printStock() {
         stock.printStockFromStock();
     }
 
-    public Car createCar(Color color, Model model, int yearOfIssue, WheelSize wheelSize, VolumeEng volumeEng, Set<Option> options) {
-        Car result = stock.findSuitCar(color, model, yearOfIssue, wheelSize, volumeEng, options);
+    public Stock getStock() {
+        return stock;
+    }
+
+    public Car createCar(Brand brand, Color color, Model model, int yearOfIssue, WheelSize wheelSize, VolumeEng volumeEng,
+                         Wrapper wrapper, Stock stock) {
+        Car result = stock.findSuitCar(brand, color, model, yearOfIssue, wheelSize, volumeEng, wrapper);
 
         if (result != null) {
             if (result.getColor() != color) {
                 result.setColor(color);
+                System.out.println("This car changed color!");
             }
             if (result.getWheelSize() != wheelSize) {
                 result.setWheelSize(wheelSize);
+                System.out.println("This car changed wheelSize!");
             }
-            result.setOption(options);
+            if (!wrapper.getOptions().equals(result.getOptions())) {
+                result.setOptions(wrapper.getOptions());
+                System.out.println("This car added (changed) options: ");
+                System.out.println(wrapper.getOptions());
+            }
+            printCar(result);
+            System.out.println("-------------------");
             return result;
         }
-        return new Car(color, model, yearOfIssue, wheelSize, volumeEng, options) {
-            @Override
-            public void printCar(Car car) {
-
-            }
+        Car car = new Car(brand, color, model, yearOfIssue, wheelSize, volumeEng, wrapper) {
         };
+        return car;
     }
 
     public Color[] getColor() {

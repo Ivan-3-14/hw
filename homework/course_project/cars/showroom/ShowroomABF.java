@@ -1,46 +1,107 @@
 package homework.course_project.cars.showroom;
 
+import homework.course_project.cars.audi.audifactory.AudiFactory;
+
+import homework.course_project.cars.bmw.bmwfactory.BMWFactory;
+
 import homework.course_project.cars.car.factory.CarFactory;
+import homework.course_project.cars.car.factory.Wrapper;
 import homework.course_project.cars.car.model.Car;
-import homework.course_project.cars.car.model.enums.*;
-import homework.course_project.cars.car.service.Service;
-import homework.course_project.cars.car.showroom.Showroom;
+import homework.course_project.cars.car.model.interfaces.*;
+
+import homework.course_project.cars.ford.fordfactory.FordFactory;
+import homework.course_project.cars.services.ChangeColorService;
+import homework.course_project.cars.services.ChangeOptionService;
+import homework.course_project.cars.services.ChangeWheelService;
+
 
 import java.util.Set;
 
-public class ShowroomABF extends Showroom {
+public class ShowroomABF {
 
-    public ShowroomABF(Service service, CarFactory factory) {
-        super(service, factory);
+    private final ChangeColorService changeColorService;
+    private final ChangeWheelService changeWheelService;
+    private final ChangeOptionService changeOptionService;
+    private final AudiFactory audiFactory;
+    private final BMWFactory bmwFactory;
+    private final FordFactory fordFactory;
+
+    public ShowroomABF(ChangeColorService changeColorService, ChangeWheelService changeWheelService,
+                       ChangeOptionService changeOptionService, AudiFactory audiFactory, BMWFactory bmwFactory,
+                       FordFactory fordFactory) {
+        this.changeColorService = changeColorService;
+        this.changeWheelService = changeWheelService;
+        this.changeOptionService = changeOptionService;
+        this.audiFactory = audiFactory;
+        this.bmwFactory = bmwFactory;
+        this.fordFactory = fordFactory;
     }
 
-    @Override
-    public Car orderCar(Color color, Model model, int yearOfIssue, WheelSize wheelSize, VolumeEng volumeEng, Set<Option> options) {
-        return super.orderCar(color, model, yearOfIssue, wheelSize, volumeEng, options);
+    public Car orderCar(Brand brand, Color color, Model model, int yearOfIssue, WheelSize wheelSize, VolumeEng volumeEng, Wrapper wrapper) {
+        CarFactory factory = null;
+        if (brand.toString().equalsIgnoreCase("AUDI")) {
+            factory = audiFactory;
+        } else if (brand.toString().equalsIgnoreCase("BMW")) {
+            factory = bmwFactory;
+        } else if (brand.toString().equalsIgnoreCase("FORD")) {
+            factory = fordFactory;
+        }
+        assert factory != null;
+        return factory.createCar(brand, color, model, yearOfIssue, wheelSize, volumeEng, wrapper, factory.getStock());
     }
 
-    @Override
     public void changeColor(Car car, Color color) {
-        super.changeColor(car, color);
+        try {
+            changeColorService.changeColor(car, color);
+        } catch (NullPointerException e) {
+            System.err.println("ERROR! You have null at changeColor method! " + e);
+        }
     }
 
-    @Override
-    public void changeWheels(Car car, WheelSize wheelSize) {
-        super.changeWheels(car, wheelSize);
+    public void changeWheelSize(Car car, WheelSize wheelSize) {
+        try {
+            changeWheelService.changeWheels(car, wheelSize);
+        } catch (NullPointerException e) {
+            System.err.println("ERROR! You have null at changeWheelSize method!  " + e);
+        } catch (Exception e) {
+            System.err.println("ERROR " + e);
+        }
     }
 
-    @Override
     public void addOption(Car car, Option option) {
-        super.addOption(car, option);
+        try {
+            changeOptionService.addOption(car, option);
+        } catch (NullPointerException e) {
+            System.err.println("ERROR! You have null at addOption method!  " + e);
+        } catch (Exception e) {
+            System.err.println("ERROR " + e);
+        }
     }
 
-    @Override
     public void deleteOption(Car car, Option option) {
-        super.deleteOption(car, option);
+        try {
+            changeOptionService.deleteOption(car, option);
+        } catch (NullPointerException e) {
+            System.err.println("ERROR! You have null at deleteOption method!  " + e);
+        } catch (Exception e) {
+            System.err.println("ERROR " + e);
+        }
     }
 
-    @Override
-    public void setOptions(Car car, Set<Option> options) {
-        super.setOptions(car, options);
+    public <T> void changeOptions(Car car, Set<T> options) {
+        try {
+            car.getOptions().clear();
+            changeOptionService.changeOptions(car, (Set<Option>) options);
+        } catch (NullPointerException e) {
+            System.err.println("ERROR! You have null at changeOptions method!  " + e);
+        } catch (Exception e) {
+            System.err.println("ERROR " + e);
+        }
     }
+
+    public void printCarFactoryLists(CarFactory factory) {
+        factory.printListForProduction();
+    }
+
+
 }

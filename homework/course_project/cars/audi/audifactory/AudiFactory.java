@@ -1,12 +1,9 @@
 package homework.course_project.cars.audi.audifactory;
 
+import homework.course_project.cars.audi.Audi;
 import homework.course_project.cars.audi.enums.*;
 import homework.course_project.cars.car.factory.CarFactory;
 import homework.course_project.cars.car.factory.Stock;
-import homework.course_project.cars.car.model.Car;
-import homework.course_project.cars.car.model.enums.*;
-
-import java.util.Set;
 
 
 public class AudiFactory extends CarFactory {
@@ -18,8 +15,17 @@ public class AudiFactory extends CarFactory {
     public AudiFactory(AudiColor[] color, AudiModel[] model, AudiWheelSize[] wheelSize, AudiVolumeEng[] volumeEng, AudiBodyType[] bodyType) {
         super(color, model, wheelSize, volumeEng);
         this.audiStock = new Stock();
-        this.bodyType = bodyType;
-        audiStock.addCarToAudiStorage();
+        AudiFactory.bodyType = bodyType;
+        addCarToStock();
+    }
+
+    @Override
+    public void addCarToStock() {
+        this.audiStock.addCarToStock(new Audi(AudiBrand.AUDI, AudiColor.BLACK, AudiModel.A5, 2023, AudiWheelSize.R17, AudiVolumeEng.V_2_2, new WrapperAudi(AudiBodyType.COUPE, true)));
+        this.audiStock.addCarToStock(new Audi(AudiBrand.AUDI, AudiColor.YELLOW, AudiModel.Q5, 2023, AudiWheelSize.R18, AudiVolumeEng.V_2_0, new WrapperAudi(AudiBodyType.STATION_WAGON, true)));
+        this.audiStock.addCarToStock(new Audi(AudiBrand.AUDI, AudiColor.YELLOW, AudiModel.A4, 2023, AudiWheelSize.R17, AudiVolumeEng.V_2_2, new WrapperAudi(AudiBodyType.HATCHBACK, true)));
+        this.audiStock.addCarToStock(new Audi(AudiBrand.AUDI, AudiColor.RED, AudiModel.A6, 2023, AudiWheelSize.R16, AudiVolumeEng.V_2_4, new WrapperAudi(AudiBodyType.CROSSOWER, true)));
+        this.audiStock.addCarToStock(new Audi(AudiBrand.AUDI, AudiColor.RED, AudiModel.A6, 2023, AudiWheelSize.R17, AudiVolumeEng.V_2_4, new WrapperAudi(AudiBodyType.SEDAN, true)));
     }
 
     @Override
@@ -30,12 +36,11 @@ public class AudiFactory extends CarFactory {
 
     @Override
     public void printListForProduction() {
-        System.out.println("Available characteristics: ");
+        System.out.print("Audi ");
         super.printListForProduction();
     }
 
-    @Override
-    public Car createCar(Color color, Model model, int yearOfIssue, WheelSize wheelSize, VolumeEng volumeEng, Set<Option> options) {
-        return super.createCar(color, model, yearOfIssue, wheelSize, volumeEng, options);
+    public Stock getStock() {
+        return audiStock;
     }
 }
