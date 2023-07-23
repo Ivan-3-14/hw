@@ -7,7 +7,7 @@ import homework.course_project.cars.car.model.interfaces.WheelSize;
 
 import java.util.Set;
 
-public class Service {
+public abstract class Service {
     public void changeColor(Car car, Color color) {
         if (car != null && color != null && !color.equals(car.getColor())) {
             System.out.println("Color Service: color (" + car.getColor() + ") is change on (" + color + ")");

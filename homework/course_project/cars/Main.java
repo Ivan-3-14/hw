@@ -25,10 +25,9 @@ import java.util.Set;
 import static homework.course_project.cars.car.model.Car.printCar;
 
 public class Main {
-    public static void main(String[] args) throws NullPointerException {
+    public static void main(String[] args) {
 
         try {
-
             ChangeColorService changeColorService = new ChangeColorService();
             ChangeWheelService changeWheelService = new ChangeWheelService();
             ChangeOptionService changeOptionService = new ChangeOptionService();
@@ -42,12 +41,12 @@ public class Main {
                     changeColorService, changeWheelService, changeOptionService, audiFactory, bmwFactory, fordFactory
             );
 
-//        showroomABF.printCarFactoryLists(audiFactory);
-//        audiFactory.printStock();
+        showroomABF.printCarFactoryLists(audiFactory);
+        audiFactory.printStock();
 
             Audi audi = (Audi) showroomABF.orderCar(
                     AudiBrand.AUDI,
-                    BMWColor.BLUE,
+                    AudiColor.BLACK,
                     AudiModel.A5,
                     2023,
                     AudiWheelSize.R17,
@@ -70,6 +69,12 @@ public class Main {
             printCar(audi);
 
             audiFactory.printStock();
-        } catch (NullPointerException e){}
+        } catch (NullPointerException e){
+            System.err.println("NullPointerException" + e);
+        } catch (IllegalArgumentException e) {
+            System.err.println("IllegalArgumentException" + e);
+        } catch (Exception e) {
+            System.out.println("ERROR!" + e);
+        }
     }
 }

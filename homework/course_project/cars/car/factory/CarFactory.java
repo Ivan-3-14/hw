@@ -77,7 +77,6 @@ public abstract class CarFactory {
                     System.out.println(wrapper.getOptions());
                 }
                 printCar(result);
-                System.out.println("-------------------");
                 return result;
             }
             Car car = new Car(brand, color, model, yearOfIssue, wheelSize, volumeEng, wrapper) {

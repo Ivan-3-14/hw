@@ -8,7 +8,7 @@ import homework.course_project.cars.car.service.Service;
 
 import java.util.Set;
 
-public class Showroom {
+public abstract class Showroom {
     private final Service service;
     private final CarFactory factory;
 

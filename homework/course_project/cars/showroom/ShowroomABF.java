@@ -64,7 +64,7 @@ public class ShowroomABF {
             ) {
                 factory = audiFactory;
             } else {
-                System.err.println("You entered an invalid value at " + brand );
+                System.err.println("ERROR! You entered an invalid value at " + brand );
             }
         } else if (brand.toString().equalsIgnoreCase("BMW")) {
                 if (checkRequiredParameter(List.of(BMWColor.values()), color)
@@ -74,7 +74,7 @@ public class ShowroomABF {
                 ) {
                     factory = bmwFactory;
                 } else {
-                    System.err.println("You entered an invalid value at " + brand );
+                    System.err.println("ERROR! You entered an invalid value at " + brand );
                 }
 
             } else if (brand.toString().equalsIgnoreCase("FORD")) {
@@ -85,7 +85,7 @@ public class ShowroomABF {
                 ) {
                     factory = fordFactory;
                 } else {
-                    System.err.println("You entered an invalid value at " + brand );
+                    System.err.println("ERROR! You entered an invalid value at " + brand );
                 }
             }
             
