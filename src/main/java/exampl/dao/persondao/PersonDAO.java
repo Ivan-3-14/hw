@@ -11,7 +11,6 @@ public interface PersonDAO extends DAO<Person> {
     @Override
     void save(Person person) throws SQLException;
 
-    @Override
     List <Person> findByParameter(
             Parameters parameter,
             String mainCondition,
