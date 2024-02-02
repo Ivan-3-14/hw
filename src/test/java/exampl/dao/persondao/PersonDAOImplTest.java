@@ -20,16 +20,14 @@ public class PersonDAOImplTest extends TestCase {
     public void testSave() {
         Person person = MockUtils.getTestPerson();
         EntityManager entityManager = HibernateUtil.getEntityManager();
-        Session session = entityManager.unwrap(Session.class);
 
-        PersonDAOImpl personDAO = new PersonDAOImpl(session);
+        PersonDAOImpl personDAO = new PersonDAOImpl(entityManager);
 
         personDAO.save(person);
 
         Person entityPerson = entityManager.find(Person.class, 2);
         TestUtilsMethods.myAssert(entityPerson, person);
 
-        session.close();
         entityManager.close();
     }
 
@@ -37,9 +35,8 @@ public class PersonDAOImplTest extends TestCase {
     public void testFindByParameter() {
         Person person = MockUtils.getTestPerson2();
         EntityManager entityManager = HibernateUtil.getEntityManager();
-        Session session = entityManager.unwrap(Session.class);
 
-        PersonDAOImpl personDAO = new PersonDAOImpl(session);
+        PersonDAOImpl personDAO = new PersonDAOImpl(entityManager);
 
         personDAO.save(person);
 
@@ -67,7 +64,6 @@ public class PersonDAOImplTest extends TestCase {
                 String.valueOf(person.getTimeToLunch()), NULL_CONDITION).get(0);
         TestUtilsMethods.myAssert(entityPerson, person);
 
-        session.close();
         entityManager.close();
     }
 }

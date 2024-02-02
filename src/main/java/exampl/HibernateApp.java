@@ -4,7 +4,6 @@ import exampl.enums.Parameters;
 import exampl.person.Person;
 import exampl.dao.persondao.PersonDAOImpl;
 import exampl.utils.HibernateUtil;
-import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -60,9 +59,7 @@ public class HibernateApp {
         );
 
         EntityManager entityManager = HibernateUtil.getEntityManager();
-        Session session = entityManager.unwrap(Session.class);
-
-        PersonDAOImpl personDAO = new PersonDAOImpl(session);
+        PersonDAOImpl personDAO = new PersonDAOImpl(entityManager);
 
         personDAO.save(person1);
         personDAO.save(person2);
@@ -73,7 +70,6 @@ public class HibernateApp {
         List<Person> persons = personDAO.findByParameter(Parameters.AGE, MORE, 21, ORDER_BY_DTC);
         persons.forEach(System.out::println);
 
-        session.close();
         entityManager.close();
     }
 }

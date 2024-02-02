@@ -8,10 +8,6 @@ public class Printer {
         System.out.println(" save successful ");
     }
 
-    public static void  printNotSuccessfulSaveMethodMessage(){
-        System.out.println("Failed to add!!! This person already exist!!!");
-    }
-
     public static void printFindByParamExceptionMessage(){
         System.out.println("Please, check type of your entered value");
     }
